@@ -1,5 +1,6 @@
 ﻿using System;
 using DesignPatterns.Iterator;
+using DesignPatterns.Strategy;
 
 namespace Console
 {
@@ -7,16 +8,10 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var history = new History("1", "2", "3", "4");
-
-            var iterator = history.IterateInReverseOrder();
-
-            while (iterator.MoveNext())
-            {
-                System.Console.WriteLine(iterator.Current);
-            }
-
-            System.Console.WriteLine();
+            var image = "someImage";
+            
+            var imageStorage = new ImageStorage();
+            imageStorage.Save(image, new PngEncoder(), new WidePutinWalksFilter());
         }
     }
 }
