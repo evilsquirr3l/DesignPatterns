@@ -15,6 +15,8 @@ namespace Console
             {
                 System.Console.WriteLine(iterator.Current);
             }
+
+            System.Console.WriteLine();
         }
     }
 }
