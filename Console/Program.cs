@@ -1,6 +1,7 @@
 ﻿using System;
 using DesignPatterns.Iterator;
 using DesignPatterns.Strategy;
+using DesignPatterns.Template;
 
 namespace Console
 {
@@ -8,10 +9,11 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var image = "someImage";
+            var visaTransfer = new VisaTransfer();
+            var bitcoinTransfer = new BitcoinTransfer();
             
-            var imageStorage = new ImageStorage();
-            imageStorage.Save(image, new PngEncoder(), new WidePutinWalksFilter());
+            visaTransfer.TransferMoney();
+            bitcoinTransfer.TransferMoney();
         }
     }
 }
