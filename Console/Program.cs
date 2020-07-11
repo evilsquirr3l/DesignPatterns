@@ -1,6 +1,7 @@
 ﻿using System;
 using DesignPatterns.Command;
 using DesignPatterns.Command.Undo;
+using DesignPatterns.Observer;
 
 namespace Console
 {
@@ -8,16 +9,15 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var document = new Document {Content = "Hello world"};
-
-            var history = new History();
-            var boldCommand = new BoldCommand(history, document);
-            boldCommand.Execute();
-
-            System.Console.WriteLine(document.Content);
+            var concreteSubject = new ConcreteSubject();
             
-            boldCommand.Unexecute();
-            System.Console.WriteLine(document.Content);
+            var obs1 = new ConcreteObserver1(concreteSubject);
+            var obs2 = new ConcreteObserver2(concreteSubject);
+            
+            concreteSubject.Attach(obs1);
+            concreteSubject.Attach(obs2);
+            
+            concreteSubject.Data = "Kek";
         }
     }
 }
