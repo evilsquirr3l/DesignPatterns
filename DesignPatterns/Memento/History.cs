@@ -4,6 +4,16 @@ namespace DesignPatterns.Memento
 {
     public class History
     {
-        public Stack<EditorState> EditorStates { get; private set; } = new Stack<EditorState>();
+        private Stack<EditorState> _editorStates { get; } = new Stack<EditorState>();
+
+        public void Push(EditorState state)
+        {
+            _editorStates.Push(state);
+        }
+
+        public EditorState Pop()
+        {
+            return _editorStates.Pop();
+        }
     }
 }
