@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,7 +15,12 @@ namespace DesignPatterns.Command.Undo
 
         public IUndoableCommand Dequeue()
         {
-            return _commands.Dequeue();
+            if (_commands.TryDequeue(out var result))
+            {
+                return result;
+            }
+            
+            throw new InvalidOperationException("History is empty.");
         }
     }
 }
