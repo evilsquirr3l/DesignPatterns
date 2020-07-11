@@ -14,7 +14,10 @@ namespace DesignPatterns.Command.Undo
 
         public IUndoableCommand Dequeue()
         {
-            return _commands.Dequeue();
+            IUndoableCommand result;
+            _commands.TryDequeue(out result);
+
+            return result;
         }
     }
 }
