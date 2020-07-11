@@ -2,7 +2,7 @@ namespace DesignPatterns.Command.Undo
 {
     public class BoldCommand : IUndoableCommand
     {
-        private string prevContent;
+        private string _prevContent;
         private History _history;
         private Document _document;
 
@@ -14,14 +14,14 @@ namespace DesignPatterns.Command.Undo
 
         public void Execute()
         {
-            prevContent = _document.Content;
+            _prevContent = _document.Content;
             _document.MakeBold();
             _history.Enqueue(this);
         }
 
         public void Unexecute()  
         {
-            _document.Content = prevContent;
+            _document.Content = _prevContent;
         }
     }
 }
