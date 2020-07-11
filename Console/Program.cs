@@ -1,4 +1,5 @@
 ﻿using System;
+using DesignPatterns.Command;
 using DesignPatterns.Iterator;
 using DesignPatterns.Strategy;
 using DesignPatterns.Template;
@@ -9,11 +10,11 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var visaTransfer = new VisaTransfer();
-            var bitcoinTransfer = new BitcoinTransfer();
+            var customerService = new CustomerService();
+            var customerCommand = new CustomerServiceCommand(customerService);
             
-            visaTransfer.TransferMoney();
-            bitcoinTransfer.TransferMoney();
+            var button = new Button(customerCommand);
+            button.Click();
         }
     }
 }
