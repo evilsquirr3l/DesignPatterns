@@ -16,7 +16,7 @@ namespace DesignPatterns.Observer
             _observers.Remove(observer);
         }
 
-        public void Notify()
+        protected void Notify()
         {
             foreach (var observer in _observers)
             {
