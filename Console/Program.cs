@@ -1,6 +1,7 @@
 ﻿using System;
 using DesignPatterns.Command;
 using DesignPatterns.Command.Undo;
+using DesignPatterns.Mediatr;
 using DesignPatterns.Observer;
 
 namespace Console
@@ -9,15 +10,15 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var concreteSubject = new ConcreteSubject();
+            var mediator = new ConcreteMediator();
+            var colleague1 = new ConcreteColleague1(mediator);
+            var colleague2 = new ConcreteColleague2(mediator);
+
+            mediator.Colleague1 = colleague1;
+            mediator.Colleague2 = colleague2;
             
-            var obs1 = new ConcreteObserver1(concreteSubject);
-            var obs2 = new ConcreteObserver2(concreteSubject);
-            
-            concreteSubject.Attach(obs1);
-            concreteSubject.Attach(obs2);
-            
-            concreteSubject.Data = "Kek";
+            colleague1.Send("Hi");
+            mediator.Send("Hi too", colleague1);
         }
     }
 }
