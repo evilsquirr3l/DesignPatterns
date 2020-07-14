@@ -1,10 +1,5 @@
 ﻿using System;
-using DesignPatterns.ChainOfResponsibility;
-using DesignPatterns.Command;
-using DesignPatterns.Command.Undo;
-using DesignPatterns.Mediatr;
-using DesignPatterns.Observer;
-using DesignPatterns.Visitor;
+using DesignPatterns.Behavioral_Patterns.Visitor;
 
 namespace Console
 {
