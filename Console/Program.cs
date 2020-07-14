@@ -1,4 +1,5 @@
 ﻿using System;
+using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Command;
 using DesignPatterns.Command.Undo;
 using DesignPatterns.Mediatr;
@@ -10,15 +11,11 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var mediator = new ConcreteMediator();
-            var colleague1 = new ConcreteColleague1(mediator);
-            var colleague2 = new ConcreteColleague2(mediator);
-
-            mediator.Colleague1 = colleague1;
-            mediator.Colleague2 = colleague2;
+            var handler1 = new ConcreteHandler1();
+            var handler2 = new ConcreteHandler2();
             
-            colleague1.Send("Hi");
-            mediator.Send("Hi too", colleague1);
+            handler1.SetSuccessor(handler2);
+            handler1.Handle(1);
         }
     }
 }
