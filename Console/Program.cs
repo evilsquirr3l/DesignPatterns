@@ -4,6 +4,7 @@ using DesignPatterns.Command;
 using DesignPatterns.Command.Undo;
 using DesignPatterns.Mediatr;
 using DesignPatterns.Observer;
+using DesignPatterns.Visitor;
 
 namespace Console
 {
@@ -11,11 +12,11 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var handler1 = new ConcreteHandler1();
-            var handler2 = new ConcreteHandler2();
+            var document = new HtmlDocument();
+            document.Add(new HeadingNode());
+            document.Add(new AnchorNode());
             
-            handler1.SetSuccessor(handler2);
-            handler1.Handle(1);
+            document.Execute(new ConcreteOperation());
         }
     }
 }
