@@ -1,5 +1,6 @@
 ﻿using System;
 using DesignPatterns.Behavioral_Patterns.Visitor;
+using DesignPatterns.Structural_Patterns.Adapter;
 using DesignPatterns.Structural_Patterns.Composite;
 
 namespace Console
@@ -8,12 +9,11 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var group = new Group();
+            var image = new Image();
+            var imageView = new ImageView(image);
             
-            group.AddComponent(new Leaf());
-            group.AddComponent(new Leaf());
-            
-            group.Render();
+            imageView.ApplyFilter(new BlackAndWhiter());
+            imageView.ApplyFilter(new BigHeadFilterAdapter(new BigHeadFilter()));
         }
     }
 }
