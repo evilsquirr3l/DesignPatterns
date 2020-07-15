@@ -1,5 +1,6 @@
 ﻿using System;
 using DesignPatterns.Behavioral_Patterns.Visitor;
+using DesignPatterns.Structural_Patterns.Composite;
 
 namespace Console
 {
@@ -7,11 +8,12 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var document = new HtmlDocument();
-            document.Add(new HeadingNode());
-            document.Add(new AnchorNode());
+            var group = new Group();
             
-            document.Execute(new ConcreteOperation());
+            group.AddComponent(new Leaf());
+            group.AddComponent(new Leaf());
+            
+            group.Render();
         }
     }
 }
