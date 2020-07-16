@@ -2,6 +2,7 @@
 using DesignPatterns.Behavioral_Patterns.Visitor;
 using DesignPatterns.Structural_Patterns.Adapter;
 using DesignPatterns.Structural_Patterns.Composite;
+using DesignPatterns.Structural_Patterns.Decorator;
 
 namespace Console
 {
@@ -9,11 +10,14 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var image = new Image();
-            var imageView = new ImageView(image);
+            SaveCreditCard(new CompressedCloudStorage(new EncryptedCloudStorage(new CloudStorage())));
             
-            imageView.ApplyFilter(new BlackAndWhiter());
-            imageView.ApplyFilter(new BigHeadFilterAdapter(new BigHeadFilter()));
+            
+        }
+
+        static void SaveCreditCard(IStream stream)
+        {
+            stream.Write("some data");
         }
     }
 }
