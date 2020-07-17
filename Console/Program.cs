@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using DesignPatterns.Behavioral_Patterns.Visitor;
 using DesignPatterns.Structural_Patterns.Adapter;
 using DesignPatterns.Structural_Patterns.Bridge;
 using DesignPatterns.Structural_Patterns.Composite;
 using DesignPatterns.Structural_Patterns.Decorator;
 using DesignPatterns.Structural_Patterns.Flyweight;
+using DesignPatterns.Structural_Patterns.Proxy;
 
 namespace Console
 {
@@ -12,10 +14,17 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var remoteControl = new RemoteControl(new SonyTv());
+            var library = new Library();
+            var fileNames = new List<string>{"Book1", "Book2"};
+
+            foreach (var name in fileNames)
+            {
+                var ebook = new ProxyEbook(name);
+                
+                library.Add(ebook);
+            }
             
-            remoteControl.TurnOn();
-            remoteControl.TurnOff();
+            library.Show("Book1");
         }
     }
 }
