@@ -9,9 +9,4 @@ namespace DesignPatterns.Structural_Patterns.Decorator
             Console.WriteLine($"Storing {data}...");
         }
     }
-
-    public interface IStream
-    {
-        void Write(string data);
-    }
 }
