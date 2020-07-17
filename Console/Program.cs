@@ -3,6 +3,7 @@ using DesignPatterns.Behavioral_Patterns.Visitor;
 using DesignPatterns.Structural_Patterns.Adapter;
 using DesignPatterns.Structural_Patterns.Composite;
 using DesignPatterns.Structural_Patterns.Decorator;
+using DesignPatterns.Structural_Patterns.Flyweight;
 
 namespace Console
 {
@@ -10,14 +11,12 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            SaveCreditCard(new CompressedCloudStorage(new EncryptedCloudStorage(new CloudStorage())));
-            
-            
-        }
+            var pointService = new PointService(new PointFactory());
 
-        static void SaveCreditCard(IStream stream)
-        {
-            stream.Write("some data");
+            foreach (var point in pointService.GetPoints())
+            {
+                point.Draw();
+            }
         }
     }
 }
