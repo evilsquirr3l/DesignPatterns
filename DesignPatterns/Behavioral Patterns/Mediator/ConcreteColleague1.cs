@@ -1,10 +1,10 @@
 using System;
 
-namespace DesignPatterns.Behavioral_Patterns.Mediatr
+namespace DesignPatterns.Behavioral_Patterns.Mediator
 {
-    public class ConcreteColleague2 : Colleague
+    public class ConcreteColleague1 : Colleague
     {
-        public ConcreteColleague2(Mediator mediator) : base(mediator)
+        public ConcreteColleague1(Mediator mediator) : base(mediator)
         {
             
         }
@@ -13,7 +13,7 @@ namespace DesignPatterns.Behavioral_Patterns.Mediatr
         {
             Mediator.Send(message + ", send from colleague1", this);
         }
-
+        
         public void Notify(string message)
         {
             Console.WriteLine(message);

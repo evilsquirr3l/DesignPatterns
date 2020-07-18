@@ -1,4 +1,4 @@
-namespace DesignPatterns.Behavioral_Patterns.Mediatr
+namespace DesignPatterns.Behavioral_Patterns.Mediator
 {
     public class ConcreteMediator : Mediator
     {
