@@ -6,7 +6,7 @@ namespace DesignPatterns.Structural_Patterns.Flyweight
     {
         private Dictionary<PointType, PointIcon> _points = new Dictionary<PointType, PointIcon>();
 
-        public PointIcon GetPoint(PointType pointType)
+        public PointIcon GetPointIcon(PointType pointType)
         {
             if (_points.ContainsKey(pointType)) return _points[pointType];
             

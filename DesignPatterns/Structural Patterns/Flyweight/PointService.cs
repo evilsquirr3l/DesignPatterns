@@ -14,7 +14,7 @@ namespace DesignPatterns.Structural_Patterns.Flyweight
 
         public ICollection<Point> GetPoints()
         {
-            var point = new Point(1, 2, _pointFactory.GetPoint(PointType.Cafe));
+            var point = new Point(1, 2, _pointFactory.GetPointIcon(PointType.Cafe));
             _points.Add(point);
 
             return _points;
