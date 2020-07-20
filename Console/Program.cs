@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DesignPatterns.Behavioral_Patterns.Visitor;
+using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Structural_Patterns.Adapter;
 using DesignPatterns.Structural_Patterns.Bridge;
 using DesignPatterns.Structural_Patterns.Composite;
@@ -14,17 +15,9 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var library = new Library();
-            var fileNames = new List<string>{"Book1", "Book2"};
-
-            foreach (var name in fileNames)
-            {
-                var ebook = new ProxyEbook(name);
-                
-                library.Add(ebook);
-            }
+            var client = new Client(new CocaColaFactory());
             
-            library.Show("Book1");
+            client.Action();
         }
     }
 }
