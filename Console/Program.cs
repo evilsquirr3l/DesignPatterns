@@ -4,6 +4,7 @@ using DesignPatterns.Behavioral_Patterns.Visitor;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
+using DesignPatterns.Creational.Prototype;
 using DesignPatterns.Structural_Patterns.Adapter;
 using DesignPatterns.Structural_Patterns.Bridge;
 using DesignPatterns.Structural_Patterns.Composite;
@@ -17,11 +18,12 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            Baker baker = new KyivCakeBaker();
-            baker.CreateCake();
-            
-            baker = new NapoleonBaker();
-            baker.CreateCake();
+            var prototype = new ConcretePrototype1(1);
+
+            System.Console.WriteLine(prototype.Id);
+
+            var prototype2 = prototype.Clone();
+            System.Console.WriteLine(prototype2.Id);
         }
     }
 }
