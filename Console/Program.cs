@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DesignPatterns.Behavioral_Patterns.Visitor;
 using DesignPatterns.Creational.AbstractFactory;
+using DesignPatterns.Creational.Builder;
 using DesignPatterns.Structural_Patterns.Adapter;
 using DesignPatterns.Structural_Patterns.Bridge;
 using DesignPatterns.Structural_Patterns.Composite;
@@ -15,9 +16,12 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            var client = new Client(new CocaColaFactory());
+            var builder = new Builder();
+            var foreman = new Foreman(builder);
             
-            client.Action();
+            foreman.Construct();
+
+            System.Console.WriteLine(builder.GetResult());
         }
     }
 }
